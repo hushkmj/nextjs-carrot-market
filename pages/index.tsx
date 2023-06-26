@@ -18,7 +18,11 @@ const Home: NextPage = () => {
           <span>Total</span>
           <span className="font-semibold">$10</span>
         </div>
-        <div className="mt-4 bg-blue-500 text-white p-3 text-center rounded-xl w-2/4 mx-auto">Checkout</div>
+        <button
+          className="mt-5 bg-blue-500 text-white p-3 text-center rounded-xl w-3/4 mx-auto hover:bg-teal-400 hover:text-black active:bg-yellow-500 focus:text-red-500"
+        >
+          Checkout
+        </button>
       </div>
       {/* profile */}
       <div className="bg-white overflow-hidden rounded-3xl shadow-xl">
@@ -31,7 +35,7 @@ const Home: NextPage = () => {
               <span className="text-sm text-gray-500">Orders</span>
               <span className="font-medium">340</span>
             </div>
-            <div className="h-24 w-24 bg-red-600 rounded-full"/>
+            <div className="h-24 w-24 bg-gray-300 rounded-full" />
             <div className="flex flex-col items-center">
               <span className="text-sm text-gray-500">Spent</span>
               <span className="font-medium">$2,310</span>
@@ -52,15 +56,15 @@ const Home: NextPage = () => {
             <span className="shadow-xl p-2 rounded-md">❤</span>
           </div>
         </div>
-        <div className="bg-zinc-400 h-72 mb-5"/>
+        <div className="bg-zinc-400 h-72 mb-5" />
         <div className="flex flex-col">
           <span className="font-medium text-xl">Swoon Lounge</span>
           <span className="text-xs text-gray-500">Chair</span>
           <div className="mt-3 mb-5 flex justify-between items-center">
-            <div>
-              <input type="radio" name="" id="" />
-              <input type="radio" name="" id="" />
-              <input type="radio" name="" id="" />
+            <div className="space-x-2">
+              <button className="w-5 h-5 rounded-full bg-yellow-100" />
+              <button className="w-5 h-5 rounded-full bg-indigo-100" />
+              <button className="w-5 h-5 rounded-full bg-teal-100" />
             </div>
             <div className="flex items-center space-x-5">
               <button className="rounded-lg bg-blue-200 flex justify-center items-center aspect-square w-8 text-xl text-gray-500">-</button>
