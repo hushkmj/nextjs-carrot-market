@@ -8,13 +8,13 @@ const Home: NextPage = () => {
       xl:grid-cols-3 
       min-h-screen">
       {/* checkout */}
-      <div className="bg-white flex flex-col justify-between p-6 rounded-3xl shadow-xl">
-        <span className="font-semibold text-xl">Select Item</span>
+      <div className="bg-white dark:bg-black flex flex-col justify-between p-6 rounded-3xl shadow-xl bg-[url('/vercel.svg')]">
+        <span className="font-semibold dark:text-gray-100 text-xl">Select Item</span>
         <ul>
           {[1, 2].map((i) => (
-            <div key={i} className="flex justify-between my-2 odd:bg-blue-100 even:bg-green-100">
-              <span className="text-gray-500">Grey chair</span>
-              <span className="font-semibold">$19</span>
+            <div key={i} className="flex justify-between my-2">
+              <span className="text-gray-500 dark:text-gray-100">Grey chair</span>
+              <span className="font-semibold dark:text-white">$19</span>
             </div>
           ))}
         </ul>
@@ -24,7 +24,22 @@ const Home: NextPage = () => {
         </div>
         <div className="flex justify-center">
           <button
-            className="mt-5 bg-blue-500 text-white p-3 text-center rounded-xl w-3/4 mx-auto hover:bg-teal-400 hover:text-black active:bg-yellow-500 focus:text-red-500"
+            className="
+            mt-5 
+            dark:border-white 
+            dark:border 
+            bg-blue-500 
+            dark:bg-black 
+            text-white 
+            p-3 
+            text-center 
+            rounded-xl w-3/4 
+            mx-auto 
+            dark:hover:bg-white
+            hover:bg-teal-400 
+            hover:text-black 
+            active:bg-yellow-500 f
+            ocus:text-red-500"
           >
             Checkout
           </button>
