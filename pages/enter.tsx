@@ -17,20 +17,20 @@ const Enter: NextPage = () => {
     const [method, setMethod] = useState<"email" | "phone">("email");
     const onEmailClick = () => { reset(); setMethod("email") };
     const onPhoneClick = () => { reset(); setMethod("phone") };
-    const onValid = (data: EnterForm) => {
+    const onValid = (validForm: EnterForm) => {
         // setSubmitting(true);
         // fetch("/api/users/enter", {
         //     method: "POST",
-        //     body: JSON.stringify(data),
+        //     body: JSON.stringify(validForm),
         //     headers: {
         //         "Content-Type": "application/json",
         //     }
         // }).then(()=>{
         //     setSubmitting(false);
         // });
-        enter(data);
+        enter(validForm);
     };
-
+    console.log(loading, data, error);
     return (
         <div className="mt-16 px-4">
             <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
