@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import client from "../../libs/client"
+import client from "../../../libs/server/client"
 
 type Data = {
   name: string
@@ -10,12 +10,9 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  client.user.create({
-    data: {
-      email: "hushkmj@naver.com",
-      name: "zeroscrap",
-    }
-  })
-
-  res.status(200).json({ name: 'John Doe' })
+  if(req.method !== "POST"){
+    res.status(401).end();
+  }
+  console.log(req.body.phone);
+  res.status(200).end();
 }
