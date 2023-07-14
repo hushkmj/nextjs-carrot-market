@@ -12,18 +12,25 @@ async function handler(
   res: NextApiResponse<Data>
 ) {
   const { phone, email } = req.body;
-  const payload = phone ? { phone: Number(phone) } : { email }
-  const user = await client.user.upsert({
-    where: {
-      ...payload
-    },
-    create: {
-      name: "Anonymous",
-      ...payload
-    },
-    update: {},
+  const user = phone ? { phone: Number(phone) } : { email }
+  const payload = Math.floor(100000 + Math.random() * 900000) + "";
+  const token = await client.token.create({
+    data: {
+      payload,
+      user: {
+        connectOrCreate: {
+          where: {
+            ...user
+          },
+          create: {
+            name: "Anonymous",
+            ...user
+          },
+        }
+      }
+    }
   });
-  console.log(user)
+  console.log(token);
   /*   if (email) {
       console.log("found it")
       user = await client.user.findUnique({
