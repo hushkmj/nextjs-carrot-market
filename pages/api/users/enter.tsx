@@ -3,6 +3,9 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 import withHandler, { ResponseType } from '@/libs/server/withHandler';
 import client from "@/libs/server/client";
+import twilio from "twilio";
+
+const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
 async function handler(
   req: NextApiRequest,
@@ -28,8 +31,23 @@ async function handler(
       }
     }
   });
-  return res.json({
-    ok: true,
-  });
+  if (phone) {
+    // const message = await twilioClient.messages.create({
+    //   messagingServiceSid: process.env.TWILIO_MSID,
+    //   to: process.env.MY_PHONE!,
+    //   body: `Your login token is ${payload}`,
+    // });
+    // console.log(message);
+  } else if (email) {
+    // const email = await mail.send({
+    //   from: "hushkmj@naver.com",
+    //   to: "hushkmj@naver.com",
+    //   subject: "Your carrot Market Verification Email",
+    //   text : `Your token is ${payload}`,
+    //   html: `<strong>Your token is ${payload}</strong>`
+    // });
+    // console.log(email);
+  }
+  return res.status(200).json({ ok: true, });
 }
 export default withHandler("POST", handler);
