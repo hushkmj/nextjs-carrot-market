@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-
 import withHandler, { ResponseType } from '@/libs/server/withHandler';
 import client from "@/libs/server/client";
 import twilio from "twilio";
