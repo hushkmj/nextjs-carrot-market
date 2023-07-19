@@ -5,8 +5,8 @@ import useUser from "@/libs/client/useUser";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
-  const user = useUser();
-  console.log(user);
+  const {data, error} = useUser();
+  console.log(data);
   return (
     <Layout title="홈" hasTabBar={true}>
       <div className="flex flex-col space-y-5 py-10">
